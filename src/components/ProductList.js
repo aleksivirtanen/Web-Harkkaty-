@@ -12,7 +12,7 @@ const ProductList = (props) => {
           rating={product.rating}
           ratingCount={product.ratingCount}
           price={product.price}
-          productToCartHandler={props.productToCartHandler}
+          selectedProductsToDB={props.selectedProductsToDB}
         />
       ))}
     </ul>

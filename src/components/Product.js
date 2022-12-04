@@ -1,6 +1,15 @@
+import Dropdown from "./Dropdown";
+import { useState } from "react";
+
 const Product = (props) => {
+  const [amount, setAmount] = useState(1);
+
   const clickHandler = () => {
-    props.productToCartHandler(props.id, 1);
+    props.selectedProductsToDB(props.id, amount);
+  };
+
+  const dropdownHandler = (selectedAmount) => {
+    setAmount(selectedAmount);
   };
 
   return (
@@ -12,6 +21,7 @@ const Product = (props) => {
         Rating: {props.rating} Count: {props.ratingCount}
       </p>
       <p>Price: {props.price}</p>
+      <Dropdown dropdownHandler={dropdownHandler} />
       <button onClick={clickHandler}>Buy</button>
     </li>
   );

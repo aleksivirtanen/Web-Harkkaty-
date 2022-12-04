@@ -95,12 +95,8 @@ const ProductsPage = () => {
     setLoading(false);
   };
 
-  const selectedProductsToDB = async (id, amount) => {
-    console.log(id);
-    const selectedProduct = {
-      product_id: id,
-      quantity: amount,
-    };
+  const selectedProductsToDB = async (selectedProduct) => {
+    console.log(selectedProduct);
     const response = await fetch(
       "https://webstore-b2c37-default-rtdb.europe-west1.firebasedatabase.app/selectedproducts.json",
       {

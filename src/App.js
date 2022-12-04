@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import MainNavigation from "./components/MainNavigation";
 import ProductsPage from "./pages/ProductsPage";
-import AddPage from "./pages/AddPage";
+import CartPage from "./pages/CartPage";
 
 const App = () => {
   return (
@@ -11,8 +11,8 @@ const App = () => {
         <Route path="/" exact>
           <ProductsPage />
         </Route>
-        <Route path="/add">
-          <AddPage />
+        <Route path="/cart">
+          <CartPage />
         </Route>
       </Switch>
     </div>

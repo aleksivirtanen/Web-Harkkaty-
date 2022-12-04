@@ -4,14 +4,14 @@ import "./MainNavigation.css";
 const MainNavigation = () => {
   return (
     <header className="header">
-      <h2>Verkkokauppa</h2>
+      <h2>Webstore</h2>
       <nav>
         <ul>
           <li>
             <Link to="/">View</Link>
           </li>
           <li>
-            <Link to="/add">Add</Link>
+            <Link to="/cart">Cart</Link>
           </li>
         </ul>
       </nav>

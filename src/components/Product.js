@@ -5,7 +5,14 @@ const Product = (props) => {
   const [amount, setAmount] = useState(1);
 
   const clickHandler = () => {
-    props.selectedProductsToDB(props.id, amount);
+    const selectedProduct = {
+      id: props.id,
+      title: props.title,
+      image: props.image,
+      price: props.price,
+      quantity: amount,
+    };
+    props.selectedProductsToDB(selectedProduct);
   };
 
   const dropdownHandler = (selectedAmount) => {
@@ -15,7 +22,7 @@ const Product = (props) => {
   return (
     <li>
       <h2>{props.title}</h2>
-      <img src={props.image} width="150" height="170" />
+      <img src={props.image} width="150" height="160" />
       <h3>{props.description}</h3>
       <p>
         Rating: {props.rating} Count: {props.ratingCount}

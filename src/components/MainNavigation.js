@@ -8,7 +8,7 @@ const MainNavigation = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">View</Link>
+            <Link to="/">Shop</Link>
           </li>
           <li>
             <Link to="/cart">Cart</Link>

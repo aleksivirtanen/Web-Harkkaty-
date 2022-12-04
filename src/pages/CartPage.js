@@ -8,6 +8,7 @@ const CartPage = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [isEmpty, setEmpty] = useState(false);
 
   useEffect(() => {
     fetchSelectedProductsDB();
@@ -24,6 +25,9 @@ const CartPage = () => {
       }
       const selectedProducts = await response.json();
       console.log(selectedProducts);
+      if (selectedProducts === null) {
+        setEmpty(true);
+      }
       let transformedData = [];
       let counter = 0;
       // Firebasesta haetun objektin muotoilu, keyt talteen tietokannasta poistamista varten.
@@ -67,9 +71,11 @@ const CartPage = () => {
   let content;
 
   if (error) {
-    content = <p>{error}</p>;
+    content = <h3>{error}</h3>;
   } else if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <h3>Loading...</h3>;
+  } else if (isEmpty) {
+    content = <h3>Cart is empty!</h3>;
   } else {
     content = (
       <ProductCartList

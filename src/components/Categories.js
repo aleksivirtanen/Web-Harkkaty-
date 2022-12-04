@@ -47,22 +47,22 @@ const Categories = (props) => {
       <FormControlLabel
         control={
           <Checkbox
-            checked={electronics}
-            onChange={handleChange}
-            name="electronics"
-          />
-        }
-        label="Electronics"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
             checked={jewelery}
             onChange={handleChange}
             name="jewelery"
           />
         }
         label="Jewelery"
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={electronics}
+            onChange={handleChange}
+            name="electronics"
+          />
+        }
+        label="Electronics"
       />
     </FormGroup>
   );

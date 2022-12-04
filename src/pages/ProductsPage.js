@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import ProductList from "../components/ProductList";
 import Categories from "../components/Categories";
+import Modal from "../components/Modal";
+import Backdrop from "../components/Backdrop";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -8,6 +10,9 @@ const ProductsPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [checkboxStatus, setCheckboxStatus] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [imageToModal, setImageToModal] = useState();
+  const [descrToModal, setDescrToModal] = useState();
 
   useEffect(() => {
     fetchProductsAPI();
@@ -15,6 +20,16 @@ const ProductsPage = () => {
 
   const checkboxHandler = (state) => {
     setCheckboxStatus(state);
+  };
+
+  const cancelModalHandler = () => {
+    setShowModal(false);
+  };
+
+  const imageClickHandler = (image, description) => {
+    setImageToModal(image);
+    setDescrToModal(description);
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -149,14 +164,15 @@ const ProductsPage = () => {
   let content;
 
   if (error) {
-    content = <p>{error}</p>;
+    content = <h3>{error}</h3>;
   } else if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <h3>Loading...</h3>;
   } else {
     content = (
       <ProductList
         products={products}
         selectedProductsToDB={selectedProductsToDB}
+        imageClickHandler={imageClickHandler}
       />
     );
   }
@@ -165,6 +181,14 @@ const ProductsPage = () => {
     <div>
       <Categories onCheckboxHandler={checkboxHandler} />
       <section>{content}</section>
+      {showModal && (
+        <Modal
+          onCancel={cancelModalHandler}
+          image={imageToModal}
+          description={descrToModal}
+        />
+      )}
+      {showModal ? <Backdrop onClick={cancelModalHandler} /> : null}
     </div>
   );
 };

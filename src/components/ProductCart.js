@@ -6,9 +6,9 @@ const ProductCart = (props) => {
 
   return (
     <li>
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
       <img src={props.image} width="75" height="80" />
-      <p>Price: {props.price}</p>
+      <p>Price: ${props.price}</p>
       <p>Quantity: {props.quantity}</p>
       <button onClick={clickHandler}>Remove</button>
     </li>

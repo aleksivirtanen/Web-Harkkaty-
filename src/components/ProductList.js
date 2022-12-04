@@ -13,6 +13,7 @@ const ProductList = (props) => {
           ratingCount={product.ratingCount}
           price={product.price}
           selectedProductsToDB={props.selectedProductsToDB}
+          imageClickHandler={props.imageClickHandler}
         />
       ))}
     </ul>

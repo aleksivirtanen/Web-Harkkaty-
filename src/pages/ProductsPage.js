@@ -4,7 +4,7 @@ import Categories from "../components/Categories";
 import Modal from "../components/Modal";
 import Backdrop from "../components/Backdrop";
 
-const ProductsPage = () => {
+const ProductsPage = (props) => {
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -123,7 +123,7 @@ const ProductsPage = () => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    props.quantityHandler(selectedProduct.quantity);
   };
 
   const checkDatabaseEmpty = async () => {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./MainNavigation.css";
 
-const MainNavigation = () => {
+const MainNavigation = (props) => {
   return (
     <header className="header">
       <h2>Webstore</h2>
@@ -11,7 +11,7 @@ const MainNavigation = () => {
             <Link to="/">Shop</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart {props.totalQuantity}</Link>
           </li>
         </ul>
       </nav>

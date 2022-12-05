@@ -2,13 +2,14 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProductCartList from "../components/ProductCartList";
 
-const CartPage = () => {
+const CartPage = (props) => {
   //const history = useHistory();
   //history.push("/");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [isEmpty, setEmpty] = useState(false);
+  const [totalPrice, setPrice] = useState(0);
 
   useEffect(() => {
     fetchSelectedProductsDB();
@@ -44,6 +45,7 @@ const CartPage = () => {
       }
       console.log(transformedData);
       setProducts(transformedData);
+      countCartPrice(transformedData);
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -51,7 +53,21 @@ const CartPage = () => {
     setLoading(false);
   };
 
-  const removeProductDB = async (selectedProductKey) => {
+  const countCartPrice = async (productsInCart) => {
+    let count = 0;
+    let price = 0;
+    productsInCart.forEach(function (arrayItem) {
+      count += arrayItem.quantity;
+      price += arrayItem.price;
+    });
+    console.log("price: " + price);
+    setPrice(price);
+  };
+
+  const removeProductDB = async (
+    selectedProductKey,
+    selectedProductQuantity
+  ) => {
     console.log(selectedProductKey);
     try {
       const response = await fetch(
@@ -61,6 +77,7 @@ const CartPage = () => {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
+      props.quantityHandler(selectedProductQuantity);
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -78,10 +95,13 @@ const CartPage = () => {
     content = <h3>Cart is empty!</h3>;
   } else {
     content = (
-      <ProductCartList
-        products={products}
-        onRemoveProductDB={removeProductDB}
-      />
+      <section>
+        <ProductCartList
+          products={products}
+          onRemoveProductDB={removeProductDB}
+        />
+        <h3>Total Price: ${totalPrice}</h3>
+      </section>
     );
   }
 

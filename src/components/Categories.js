@@ -1,6 +1,8 @@
 import Checkbox from "@mui/material/Checkbox";
 import { FormControlLabel } from "@mui/material";
 import { FormGroup } from "@mui/material";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
 
 const Categories = (props) => {
@@ -23,48 +25,52 @@ const Categories = (props) => {
   const { mensclothing, womensclothing, electronics, jewelery } = state;
 
   return (
-    <FormGroup>
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={mensclothing}
-            onChange={handleChange}
-            name="mensclothing"
+    <Box sx={{ display: "inline" }}>
+      <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+        <FormGroup row>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={mensclothing}
+                onChange={handleChange}
+                name="mensclothing"
+              />
+            }
+            label="Men's Clothing"
           />
-        }
-        label="Men's Clothing"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={womensclothing}
-            onChange={handleChange}
-            name="womensclothing"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={womensclothing}
+                onChange={handleChange}
+                name="womensclothing"
+              />
+            }
+            label="Women's Clothing"
           />
-        }
-        label="Women's Clothing"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={jewelery}
-            onChange={handleChange}
-            name="jewelery"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={jewelery}
+                onChange={handleChange}
+                name="jewelery"
+              />
+            }
+            label="Jewelery"
           />
-        }
-        label="Jewelery"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={electronics}
-            onChange={handleChange}
-            name="electronics"
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={electronics}
+                onChange={handleChange}
+                name="electronics"
+              />
+            }
+            label="Electronics"
           />
-        }
-        label="Electronics"
-      />
-    </FormGroup>
+        </FormGroup>
+      </FormControl>
+    </Box>
   );
 };
 

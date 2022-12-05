@@ -11,7 +11,11 @@ const MainNavigation = (props) => {
             <Link to="/">Shop</Link>
           </li>
           <li>
-            <Link to="/cart">Cart {props.totalQuantity}</Link>
+            <Link to="/cart">
+              Cart {"("}
+              {props.totalQuantity}
+              {")"}
+            </Link>
           </li>
         </ul>
       </nav>

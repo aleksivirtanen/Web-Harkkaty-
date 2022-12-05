@@ -25,7 +25,7 @@ const Product = (props) => {
 
   return (
     <div>
-      <h3>{props.title}</h3>
+      <h3 className="productTitle">{props.title}</h3>
       <img
         src={props.image}
         className="image"
@@ -33,12 +33,21 @@ const Product = (props) => {
         height="160"
         onClick={imageClicked}
       />
-      <p>
-        Rating: {props.rating} Votes: {props.ratingCount}
-      </p>
-      <p>Price: ${props.price * amount} </p>
+      <div>
+        <p className="wrap-content">Rating:</p>&nbsp;
+        <h3 className="wrap-content">{props.rating}</h3>&nbsp;
+        <p className="wrap-content">Votes:</p>&nbsp;
+        <h3 className="wrap-content">{props.ratingCount}</h3>
+      </div>
+      <div className="priceRow">
+        <p className="wrap-content">Price:</p>
+        &nbsp;
+        <h3 className="wrap-content">${props.price * amount} </h3>
+      </div>
       <Dropdown dropdownHandler={dropdownHandler} />
-      <button onClick={clickHandler}>Buy</button>
+      <button onClick={clickHandler} className="btn">
+        Buy
+      </button>
     </div>
   );
 };

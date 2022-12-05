@@ -100,7 +100,9 @@ const CartPage = (props) => {
           products={products}
           onRemoveProductDB={removeProductDB}
         />
-        <h3>Total Price: ${totalPrice}</h3>
+        <h2 className="totalPrice">
+          Total Price: ${Number(totalPrice).toFixed(2)}
+        </h2>
       </section>
     );
   }

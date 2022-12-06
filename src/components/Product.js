@@ -24,7 +24,7 @@ const Product = (props) => {
   };
 
   return (
-    <div>
+    <div className="productArea">
       <h3 className="productTitle">{props.title}</h3>
       <img
         src={props.image}
@@ -44,7 +44,9 @@ const Product = (props) => {
         &nbsp;
         <h3 className="wrap-content">${props.price * amount} </h3>
       </div>
-      <Dropdown dropdownHandler={dropdownHandler} />
+      <div className="dropdown">
+        <Dropdown dropdownHandler={dropdownHandler} className="dropdown" />
+      </div>
       <button onClick={clickHandler} className="btn">
         Buy
       </button>

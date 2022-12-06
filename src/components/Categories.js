@@ -25,7 +25,7 @@ const Categories = (props) => {
   const { mensclothing, womensclothing, electronics, jewelery } = state;
 
   return (
-    <Box sx={{ display: "inline" }}>
+    <Box border={15} borderColor="#585556" sx={{ display: "box" }}>
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
         <FormGroup row>
           <FormControlLabel

@@ -7,9 +7,9 @@ const ProductCart = (props) => {
   return (
     <div>
       <h3>{props.title}</h3>
-      <img src={props.image} width="75" height="80" />
-      <p>Price: ${props.price}</p>
+      <img src={props.image} width="75" height="80" alt="" />
       <p>Quantity: {props.quantity}</p>
+      <p>Price: ${props.price}</p>
       <button onClick={clickHandler}>Remove</button>
     </div>
   );

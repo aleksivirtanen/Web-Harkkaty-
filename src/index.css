@@ -3,22 +3,20 @@
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
-  background-color: #800040;
+  background-color: #40af4a;
   color: white;
-  border: 1px solid #800040;
+  border: 1px solid #1b5c21;
   margin: 0 1rem;
-  position: relative;
-  bottom: 34px;
-  left: 26px;
+  position: static;
 }
 
 .btn:hover {
-  background-color: #9c1458;
-  border-color: #9c1458;
+  background-color: #5bd866;
+  border-color: #1b5c21;
 }
 
 .btn:active {
-  background-color: #4e0429;
+  background-color: #2d7e34;
 }
 
 .modal {
@@ -51,17 +49,20 @@
 
 .productTitle {
   width: 100%;
+  padding-left: 14%;
 }
 
 .priceRow {
   margin-top: -25px;
+  padding-left: 20%;
 }
 
 .productArea {
   height: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 20%;
   padding-top: 5%;
+  padding-bottom: 7%;
 }
 
 .image {
@@ -75,9 +76,15 @@
 
 .dropdown {
   padding-top: 2%;
+  padding-left: 20%;
+  display: inline-block;
 }
 
 .totalPrice {
   margin-left: 40px;
   margin-top: 35px;
+}
+
+.ratingdiv {
+  padding-left: 20%;
 }

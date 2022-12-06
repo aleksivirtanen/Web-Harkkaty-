@@ -1,10 +1,7 @@
-import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProductCartList from "../components/ProductCartList";
 
 const CartPage = (props) => {
-  //const history = useHistory();
-  //history.push("/");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -54,10 +51,8 @@ const CartPage = (props) => {
   };
 
   const countCartPrice = async (productsInCart) => {
-    let count = 0;
     let price = 0;
     productsInCart.forEach(function (arrayItem) {
-      count += arrayItem.quantity;
       price += arrayItem.price;
     });
     console.log("price: " + price);

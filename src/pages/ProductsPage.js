@@ -34,24 +34,24 @@ const ProductsPage = (props) => {
 
   useEffect(() => {
     let productHolder = allProducts;
-    if (checkboxStatus.mensclothing == false) {
+    if (checkboxStatus.mensclothing === false) {
       productHolder = productHolder.filter(
-        (item) => item.category != "men's clothing"
+        (item) => item.category !== "men's clothing"
       );
     }
-    if (checkboxStatus.womensclothing == false) {
+    if (checkboxStatus.womensclothing === false) {
       productHolder = productHolder.filter(
-        (item) => item.category != "women's clothing"
+        (item) => item.category !== "women's clothing"
       );
     }
-    if (checkboxStatus.electronics == false) {
+    if (checkboxStatus.electronics === false) {
       productHolder = productHolder.filter(
-        (item) => item.category != "electronics"
+        (item) => item.category !== "electronics"
       );
     }
-    if (checkboxStatus.jewelery == false) {
+    if (checkboxStatus.jewelery === false) {
       productHolder = productHolder.filter(
-        (item) => item.category != "jewelery"
+        (item) => item.category !== "jewelery"
       );
     }
     setProducts(productHolder);
@@ -123,6 +123,7 @@ const ProductsPage = (props) => {
       }
     );
     const data = await response.json();
+    console.log(data);
     props.quantityHandler(selectedProduct.quantity);
   };
 

@@ -1,5 +1,4 @@
 const Modal = (props) => {
-  console.log(props.image);
   return (
     <div className="modal">
       <img src={props.image} width="330" height="352" />

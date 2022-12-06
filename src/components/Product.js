@@ -26,14 +26,7 @@ const Product = (props) => {
   return (
     <div className="productArea">
       <h3 className="productTitle">{props.title}</h3>
-      <img
-        src={props.image}
-        className="image"
-        alt=""
-        width="150"
-        height="160"
-        onClick={imageClicked}
-      />
+      <img src={props.image} className="image" alt="" onClick={imageClicked} />
       <div className="ratingdiv">
         <p className="wrap-content">Rating:</p>&nbsp;
         <h3 className="wrap-content">{props.rating}</h3>&nbsp;

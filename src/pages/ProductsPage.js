@@ -182,13 +182,7 @@ const ProductsPage = (props) => {
     <div>
       <Categories onCheckboxHandler={checkboxHandler} />
       <section>{content}</section>
-      {showModal && (
-        <Modal
-          onCancel={cancelModalHandler}
-          image={imageToModal}
-          description={descrToModal}
-        />
-      )}
+      {showModal && <Modal image={imageToModal} description={descrToModal} />}
       {showModal ? <Backdrop onClick={cancelModalHandler} /> : null}
     </div>
   );

@@ -1,4 +1,6 @@
 const ProductCart = (props) => {
+  // Remove nappulan painalluksesta suoritettava koodi. Annetaan propsina tuodulle handlerille
+  // klikatun tuotteen nappulaa vastaavat tiedot parametrina.
   const clickHandler = () => {
     console.log(props.keyDB);
     props.onRemoveProductDB(props.keyDB, props.quantity);

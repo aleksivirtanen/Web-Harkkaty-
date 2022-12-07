@@ -4,6 +4,8 @@ import { useState } from "react";
 const Product = (props) => {
   const [amount, setAmount] = useState(1);
 
+  // Buy -napin klikkauksesta suoritettava koodi. Muotoilee propsina saadulle handlerille datan
+  // tietokantaan lisäystä varten.
   const clickHandler = () => {
     const selectedProduct = {
       id: props.id,
@@ -15,10 +17,13 @@ const Product = (props) => {
     props.selectedProductsToDB(selectedProduct);
   };
 
+  // Kuvan klikkauksesta suoritettava koodi. Antaa handlerille klikatun kuvan URLin ja tarkemman
+  // kuvauksen tuotteesta.
   const imageClicked = () => {
     props.imageClickHandler(props.image, props.description);
   };
 
+  // Asettaa Dropdown komponentilta saadun tuote määrän sitä käsittelevään stateen.
   const dropdownHandler = (selectedAmount) => {
     setAmount(selectedAmount);
   };

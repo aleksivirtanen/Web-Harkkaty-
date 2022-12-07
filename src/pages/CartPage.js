@@ -8,10 +8,12 @@ const CartPage = (props) => {
   const [isEmpty, setEmpty] = useState(false);
   const [totalPrice, setPrice] = useState(0);
 
+  // Ostoskorissa olevien tuotteiden tietojen haku tietokannasta ensimmäisellä lataus kerralla.
   useEffect(() => {
     fetchSelectedProductsDB();
   }, []);
 
+  // Hakee ostoskorissa olevat tuotteet tietokannasta, muotoilee datan ja laskee ostoskorissa olevien tuotteiden kokonaishinnan.
   const fetchSelectedProductsDB = async () => {
     try {
       setLoading(true);
@@ -28,10 +30,12 @@ const CartPage = (props) => {
       }
       let transformedData = [];
       let counter = 0;
-      // Firebasesta haetun objektin muotoilu, keyt talteen tietokannasta poistamista varten.
+      // Firebasesta haetun objektin muotoilu, keyt talteen valitun tuotteen poistamista varten tietokannasta.
       for (const key in selectedProducts) {
         transformedData.push({
           id: selectedProducts[key].id,
+          // Object.keys() ja laskuria hyödyntäen sain tietokannassa olevien objektien nimet talteen.
+          // Esim. -NIhI4hxQRGZxVGDXXPa
           keyDB: Object.keys(selectedProducts)[counter],
           title: selectedProducts[key].title,
           image: selectedProducts[key].image,
@@ -50,6 +54,7 @@ const CartPage = (props) => {
     setLoading(false);
   };
 
+  // Funktio, joka laskee ostoskorissa olevien tuotteiden yhteenlasketun hinnan.
   const countCartPrice = async (productsInCart) => {
     let price = 0;
     productsInCart.forEach(function (arrayItem) {
@@ -59,6 +64,8 @@ const CartPage = (props) => {
     setPrice(price);
   };
 
+  // Poistaa valitun tuotteen tietokannasta, annetaan propsina ProductCartList -> ProductCart komponenteille.
+  // Parametrina kyseisen tuotteen/tuotteiden tietokanta avaimen lisäksi niiden määrä.
   const removeProductDB = async (
     selectedProductKey,
     selectedProductQuantity
@@ -72,16 +79,19 @@ const CartPage = (props) => {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
+      // App.js propsina saatu handleri, joka käsittelee navigaatiopalkissa näkyvää ostoskorissa olevien tuotteiden määrää.
       props.quantityHandler(selectedProductQuantity);
     } catch (error) {
       console.log(error.message);
       setError(error.message);
     }
+    // Tuotteen poistamisen jälkeen haetaan tämänhetkinen tuotelista tietokannasta.
     fetchSelectedProductsDB();
   };
 
   let content;
 
+  // Ehdollinen sivulla näkyvä sisältö joko error, loading, ostoskori tyhjä tai tuotelista ja kokonaishinta.
   if (error) {
     content = <h3>{error}</h3>;
   } else if (isLoading) {

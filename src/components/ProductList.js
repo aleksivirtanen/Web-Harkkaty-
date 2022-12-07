@@ -2,6 +2,8 @@ import Product from "./Product";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
+// Propsit yksittäisille tuotteille, niiden asettelu ruudukkoon näytön koon mukaan
+// ja border ruudukon ympärille.
 const ProductList = (props) => {
   return (
     <Box border={15} borderColor="#585556" sx={{ display: "box" }}>

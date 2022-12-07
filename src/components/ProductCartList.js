@@ -1,5 +1,6 @@
 import ProductCart from "./ProductCart";
 
+// Tuotteiden listaus ja propsit yksittäisille tuotteille.
 const ProductCartList = (props) => {
   return (
     <ul>

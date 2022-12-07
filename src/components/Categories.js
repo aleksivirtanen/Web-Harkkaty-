@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
 
 const Categories = (props) => {
+  // Lähtötilanteessa kaikki Checkboxit true
   const [state, setState] = useState({
     mensclothing: true,
     womensclothing: true,
@@ -13,6 +14,9 @@ const Categories = (props) => {
     jewelery: true,
   });
 
+  // Handleri, jonka koodi suoritetaan aina kun jonkin Checkboxin arvo muuttuu.
+  // Päivitetään komponentissa tiloja käsittelevä state ja annetaan tämän hetkinen
+  // Checkboxien tila propsina tuodulle handlerille.
   const handleChange = (event) => {
     let currentState = {
       ...state,
@@ -24,6 +28,8 @@ const Categories = (props) => {
 
   const { mensclothing, womensclothing, electronics, jewelery } = state;
 
+  // Box/FormControl/FormGroup/FormControlLabel ovat kategoria alueen muotoilua ja asettelua varten.
+  // Jokaista tuotekategoriaa kohden oma Checkbox komponentti.
   return (
     <Box border={15} borderColor="#585556" sx={{ display: "box" }}>
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">

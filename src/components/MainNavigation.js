@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./MainNavigation.css";
 
+// Navigaatiopalkkiin linkit eri sivuihin ja ostoskorissa olevien tuotteiden määrä.
 const MainNavigation = (props) => {
   return (
     <header className="header">
